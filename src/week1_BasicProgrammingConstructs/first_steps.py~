@@ -4,8 +4,6 @@ Created on Aug 31, 2015
 @author: Philip Schulz
 '''
 
-# Here we import another package that we need. What this package does for
-# is explained further down.
 import datetime
 
 # Python can do addition
