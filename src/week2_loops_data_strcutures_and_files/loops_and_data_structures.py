@@ -11,6 +11,14 @@ from random import randint
 import string
 import sys
 
+# A little update on lists: you can actually sort them.
+my_list = 'this is a sentence with a lot of words.'.split(' ')
+print my_list
+# The sort method can take arguments. If you are interested in them, check out the
+# documentation.
+my_list.sort()
+print my_list
+
 # Let us again define a hello world string, this time with more punctuation.
 hello_world = "Hello, World!?;"
 # We can split strings around white spaces.
