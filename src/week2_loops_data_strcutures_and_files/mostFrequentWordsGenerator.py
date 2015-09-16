@@ -27,7 +27,7 @@ except:
     
 # I keep a list of in which all occurrence frequencies are stored in ascending order.
 # There are different ways to go about this, but I will use this list to go retrieve the most/least common words further down.
-frequencies = sorted(word_frequencies.values())
+frequencies = sorted(set(word_frequencies.values()))
     
 # Define a map from frequencies to sets of words. This is exactly the opposite direction of the word_frequencies counter.
 frequency_dictionary = dict()
