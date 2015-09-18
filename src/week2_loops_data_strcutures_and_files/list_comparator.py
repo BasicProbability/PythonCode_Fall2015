@@ -9,6 +9,7 @@ the second argument should be the list from the student program.
 '''
 
 import sys
+from twisted.protocols.ftp import FileNotFoundError
 
 def main(args):
     
@@ -18,17 +19,17 @@ def main(args):
     try:
         with open(args[0]) as goldFile:
             for line in goldFile:
-                elements = line.split
+                elements = line.split()
                 if elements:
-                    gold_words.add(line.split()[0])
+                    gold_words.add(elements[0])
                 
         with open(args[1]) as studentFile:
             for line in studentFile:
                 elements = line.split()
                 if elements:
-                    student_words.add(line.split()[0])
+                    student_words.add(elements[0])
     
-    except:
+    except FileNotFoundError:
         print "One of the files does not exist on your computer."
         sys.exit(0)
         
@@ -38,7 +39,7 @@ def main(args):
         sys.exit(0)
         
     intersection = gold_words.intersection(student_words)
-    overlap = float(len(intersection))/len(gold_words)
+    overlap = float(len(intersection))/len(gold_words)*100
     
     print 'The overlap between the gold list and the student ouput is {}%'.format(overlap)
 
