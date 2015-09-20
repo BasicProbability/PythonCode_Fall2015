@@ -30,7 +30,7 @@ class DistributionsTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.binomial.set_n(neg_int)
         
-    def test_set_theta(self):
+    def test_set_theta_valueError(self):
         '''
         Test whether set_theta correctly throws an error when theta is outside [0,1]
         '''
