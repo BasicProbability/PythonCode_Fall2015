@@ -4,7 +4,8 @@ Created on Sep 19, 2015
 @author: Philip Schulz
 '''
 
-from random import Random
+from random import Random, shuffle
+from math import factorial
 
 class BinomialDistribution(object):
     '''
@@ -80,6 +81,7 @@ class BinomialDistribution(object):
         '''
         
         # Use compute_probability and sample_with_k_successes here
+        # Implement inverse transform sampling here
     
     def sample_list(self, m):
         '''

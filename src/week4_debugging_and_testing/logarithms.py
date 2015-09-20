@@ -4,7 +4,7 @@ Created on Sep 19, 2015
 @author: Philip Schulz
 '''
 
-from math import log1p
+from math import log1p, exp
 
 def log_add(first_logarithm, second_logarithm):
     '''
