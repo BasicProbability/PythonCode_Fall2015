@@ -10,7 +10,7 @@ from math import factorial
 class BinomialDistribution(object):
     '''
     This class implements the binomial distribution with parameters n and theta, where n
-    is the number i.i.d. random binary decisions and theta is the probability for a success.
+    is the number of i.i.d. random binary decisions and theta is the probability for a success.
     Successes and failures can be arbitrary objects.
     '''
 
