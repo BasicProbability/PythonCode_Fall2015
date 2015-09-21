@@ -8,7 +8,7 @@ from random import Random
 from math import log, exp
 
 # imports the functions from logarithms module from the src folder
-from week4_debugging_and_testing.logarithms import log_add, log_difference
+from week4_debugging_and_testing.logarithms_solution import log_add, log_difference
 
 class LogarithmsTest(unittest.TestCase):
     # Random number generator to generate test cases
