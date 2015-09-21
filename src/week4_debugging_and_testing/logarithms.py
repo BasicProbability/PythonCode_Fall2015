@@ -8,7 +8,7 @@ from math import log1p, exp
 
 def log_add(first_logarithm, second_logarithm):
     '''
-    Add to real numbers in log-space. This function should preferebly be used with
+    Add two real numbers in log-space. This function should preferably be used with
     the logarithms of small real values.
     
     @param first_logarithm: The logarithm of the first number
