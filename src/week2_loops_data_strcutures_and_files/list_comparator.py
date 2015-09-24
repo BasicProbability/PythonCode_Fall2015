@@ -34,8 +34,8 @@ def main(args):
         sys.exit(0)
         
     if len(gold_words) != len(student_words):
-        print 'The lists are of different size. Please make sure to only '
-        'use equally sized lists.'
+        print ('The lists are of different size. Please make sure to only ' +
+        'use equally sized lists.')
         sys.exit(0)
         
     intersection = gold_words.intersection(student_words)
