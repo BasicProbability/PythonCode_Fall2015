@@ -7,11 +7,11 @@ Created on Sep 23, 2015
 import sys
 import argparse
 from datetime import datetime
-from week5_naive_bayes.Naive_Bayes import Naive_Bayes
+from week5_naive_bayes.Naive_Bayes_solution import Naive_Bayes
 from os import listdir, remove
 from os.path import isfile, join
 
-def train_model(corpus_dir, classifier):
+def train_model(corpus_dir, classifier, min_count):
     print 'Starting training at {}'.format(datetime.now())
     
     for directory in listdir(corpus_dir):
@@ -28,6 +28,7 @@ def train_model(corpus_dir, classifier):
                 print "It seems that the text_file {} is damaged.".format(text_file)
                 sys.exit(0)
         
+    classifier.collapse_infrequent_features(min_count)
     classifier.log_normalise_label_probs()
     classifier.log_normalise_feature_probs()
     print "Finished training at {}".format(datetime.now())
@@ -40,7 +41,7 @@ def make_predictions(predictions_file, test_dir, classifier):
         try:
             with open(join(test_dir, test_file)) as test, open(predictions_file, "a") as out:
                 prediction = classifier.predict(test)
-                out.write("{}\n".format(prediction))
+                out.write(test_file + ": {}\n".format(prediction))
         except IOError, e:
             print e 
             print "Something went wrong while reading test file {}".format(test_file)
@@ -60,7 +61,7 @@ def main():
     nb_classifier = Naive_Bayes()
     
     if corpus_dir:
-        train_model(corpus_dir, nb_classifier)
+        train_model(corpus_dir, nb_classifier, 1)
     
     if test_dir:
         make_predictions("predictions.txt", test_dir, nb_classifier)

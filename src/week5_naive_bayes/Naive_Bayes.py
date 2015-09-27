@@ -52,10 +52,10 @@ class Naive_Bayes(object):
         '''
         self.label_probs.update([label])
         
-    def collapse_infrequent_words(self, threshold):
+    def collapse_infrequent_features(self, threshold):
         '''
         Sum up the counts of all features whose individual counts are lower than
-        the threshold. Then erase those features. Finally, assign the cumulative 
+        or equal to the threshold. Then erase those features. Finally, assign the cumulative 
         count the unknown feature.
         
         @param threshold: The count under which a feature gets collapsed onto the unknown feature. 
