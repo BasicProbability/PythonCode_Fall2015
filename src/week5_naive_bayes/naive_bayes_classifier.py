@@ -7,7 +7,7 @@ Created on Sep 23, 2015
 import sys
 import argparse
 from datetime import datetime
-from week5_naive_bayes.Naive_Bayes_solution import Naive_Bayes
+from Naive_Bayes import Naive_Bayes
 from os import listdir, remove
 from os.path import isfile, join
 
