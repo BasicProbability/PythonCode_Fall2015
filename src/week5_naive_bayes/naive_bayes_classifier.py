@@ -7,7 +7,7 @@ Created on Sep 23, 2015
 import sys
 import argparse
 from datetime import datetime
-from Naive_Bayes import Naive_Bayes
+from Naive_Bayes_solution import Naive_Bayes
 from os import listdir, remove
 from os.path import isfile, join
 
@@ -34,6 +34,8 @@ def train_model(corpus_dir, classifier, min_count):
     print "Finished training at {}".format(datetime.now())
 
 def make_predictions(predictions_file, test_dir, classifier):
+    print "Start making predictions at {}".format(datetime.now())
+    
     if isfile(predictions_file):
         remove(predictions_file)
     
@@ -41,11 +43,13 @@ def make_predictions(predictions_file, test_dir, classifier):
         try:
             with open(join(test_dir, test_file)) as test, open(predictions_file, "a") as out:
                 prediction = classifier.predict(test)
-                out.write(test_file + ": {}\n".format(prediction))
+                out.write(test_file + " : {}\n".format(prediction))
         except IOError, e:
             print e 
             print "Something went wrong while reading test file {}".format(test_file)
             sys.exit(0)
+            
+    print "Finished making predictions at {}".format(datetime.now())
 
 def main():
     
@@ -61,7 +65,7 @@ def main():
     nb_classifier = Naive_Bayes()
     
     if corpus_dir:
-        train_model(corpus_dir, nb_classifier, 1)
+        train_model(corpus_dir, nb_classifier, 0)
     
     if test_dir:
         make_predictions("predictions.txt", test_dir, nb_classifier)
